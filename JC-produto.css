@@ -1,0 +1,108 @@
+
+/* Fundo claro elegante */
+body {
+    font-family: 'font-family, Arial, sans-serif';
+    background-image: url();
+    background-color: #fae2d6;
+    color: #333;
+    display: block;
+    max-width: fit-content;
+  }
+
+  h1 {
+    font-size: 4.5em;
+    color: #7a4a3c;
+    letter-spacing: 2px;
+    text-align: center;    /* Centraliza o texto horizontalmente */
+    margin-top: 0;         /* Remove margem superior padrão */
+    padding-top: 0px;     /* Adiciona espaço no topo (opcional) */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgb(212, 191, 191); /* Fundo para sobrepor conteúdo */
+    z-index: 0;     /* Garante que fique acima de outros elementos */
+  }
+
+  h2{
+    color: #444;
+    padding: 70px 0px 22px 0px;
+   }
+
+  label {
+    font-weight: bold;
+    display: block;
+    color: #444;
+
+  }
+
+  select, input,[type="number"] {
+    padding: 12px;
+    border: 1px solid #c95959;              /* container do tamanho e dá cor*/
+    border-radius: 7px;
+    text-align: center;
+    display: block;
+
+  }
+  button {
+    padding: 5px 13px;
+    border: none;
+    background-color: #e8c1ae;
+    color: white;                          /* botao de - + */
+    font-weight: bold;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    display: block;
+
+  }
+
+  button:hover {
+    background-color: #e8c1ae;
+    transform: scale(1.05);
+  }
+
+  .carrinho {
+    border-top: 3px solid #ccc;
+    color: #444;                   /* container- altura e profundidade*/
+    padding: 30px 20px;
+  }
+
+  #lista-carrinho {
+    list-style-type: none;
+   color: #444;          /* conteiner do carrinho SLA*/
+    padding: 50px 7px;
+  }
+
+  #lista-carrinho li {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-left: 5px solid #e8c1ae;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 49px 50px;           /* conteiner do produto no carrinho*/
+  }
+
+
+  input[type="number"] {
+    width: 35px;                       /* conteiner numeral - + */
+    text-align: right;
+    padding: 15px 2px 10px 2px;
+  }
+
+  .btn-remover {
+      background: none;
+      border: none;
+      color: rgb(68, 34, 34);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    padding: 12px 15px;   /* botao do X */
+    }
+
+      .btn-remover:hover {
+    transform: scale(1.3);
+  }
+
+
+
+

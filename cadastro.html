@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JCjoias</title>
+    <link rel="stylesheet" href="{% static 'core/css/home.css'% }">
+
+</head>
+<body>
+<h1>cadastro:</h1>
+    <div id="form_frente">
+
+        <div id="form_fundo">
+
+    <form action="/cadastro" method="post" id="login">
+        <label for="nome">NOME:</label><br>
+        <input type="text" name="nome" id="nome" placeholder="Digite seu nome:" required>
+    <br> <br>
+        <label for="senha">SENHA:</label><br>
+        <input type="password" name="senha" id="senha" placeholder="Digite sua senha:" required>
+    <br> <br>
+        <label for="cpf">CPF:</label><br>
+        <input type="text" name="cpf" id="cpf" placeholder="000.000.000-00" required>
+    <br> <br>
+        <label for="email">EMAIL:</label><br>
+        <input type="text" name="email" id="email" placeholder="Digite seu email" required>
+    <br> <br>
+        <button type="submit" id="btn_login" onclick="enviar()">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>ENVIAR
+
+    </button>
+    </form>
+
+        </div>
+    </div>
+<script>
+    function enviar(){
+    const nome = document.getElementById('nome')
+    const senha = document.getElementById('senha')
+    const cpf = document.getElementById('cpf')
+    const email = document.getElementById('email')
+}
+</script>
+
+
+</body>
+</html>

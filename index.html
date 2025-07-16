@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>JC Joias</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff9f6;
+      color: #333;
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+      position: relative;
+    }
+
+    .top-icons {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .top-icons .icone {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .top-icons .icone:hover {
+      transform: scale(1.1);
+    }
+
+    .dropdown-carrinho {
+      display: none;
+      position: absolute;
+      top: 40px;
+      right: 0;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      width: 300px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+      padding: 15px;
+    }
+
+    .dropdown-carrinho h3 {
+      margin-top: 0;
+    }
+
+    .dropdown-carrinho ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .dropdown-carrinho li {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn-remover {
+      background: none;
+      border: none;
+      color: red;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .logoconteiner {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .logoconteiner img {
+      max-width: 200px;
+    }
+
+    .titulo {
+      font-size: 2em;
+      text-align: center;
+      color: #7a4a3c;
+    }
+
+    .descricao {
+      text-align: center;
+      font-size: 1.1em;
+      margin-bottom: 30px;
+    }
+
+    #container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .item {
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .item img {
+      width: 150px;
+      height: auto;
+      border-radius: 8px;
+      border: 2px solid #e8c1ae;
+    }
+
+    .item:hover {
+      transform: scale(1.05);
+    }
+
+    .produto-box {
+      display: none;
+      margin-top: 40px;
+      border-top: 2px solid #ccc;
+      padding-top: 20px;
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+    }
+
+    .produto-imagem {
+      width: 250px;
+      border: 2px solid #e8c1ae;
+      border-radius: 10px;
+    }
+
+    .produto-info {
+      flex: 1;
+    }
+
+    select, input[type="number"] {
+      padding: 6px;
+      margin: 8px 10px 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 8px 14px;
+      border: none;
+      background-color: #e8c1ae;
+      color: white;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+      margin: 5px 0;
+    }
+
+    button:hover {
+      background-color: #d4a793;
+      transform: scale(1.05);
+    }
+
+    .opcoes-compra {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Ícones -->
+<main>
+  <div class="top-icons">
+    <img src="oakley.png" alt="Perfil" class="icone">
+    <img src="carrinho.png" alt="Carrinho" class="icone" onclick="alternarCarrinho()">
+    <div class="dropdown-carrinho" id="dropdownCarrinho">
+      <h3>Seu Carrinho</h3>
+      <ul id="lista-carrinho"></ul>
+    </div>
+  </div>
+</main>
+  <!-- Logo -->
+  <div class="logoconteiner">
+    <img src="JC LOGO.png" alt="Logo JC Joias">
+  </div>
+
+  <h1 class="titulo">Descubra a Beleza das Joias Únicas</h1>
+  <p class="descricao">Brilhe todos os dias com joias que revelam sua essência. Cada peça conta uma história – única como você!</p>
+
+  <!-- Galeria -->
+  <div id="container">
+    <div class="item" onclick="mostrarProduto('Colar com Pingente e Fios de Prata', 150.00, 'Colar2.png', 'Colar elegante com pingente sofisticado e fios de prata maciça.')">
+      <img src="Colar2.png" alt="Colar de prata">
+      <p>Colar com Pingente e Fios de Prata</p>
+    </div>
+    <div class="item" onclick="mostrarProduto('Anel Dourado', 120.00, 'anel.png', 'Anel dourado com acabamento polido, ideal para todas as ocasiões.')">
+      <img src="anel.png" alt="Anel dourado">
+      <p>Anel Dourado</p>
+    </div>
+    <div class="item" onclick="mostrarProduto('Colar o Brilho da Ametista', 180.00, 'colar.png', 'Colar com pedra ametista brilhante e corrente delicada.')">
+      <img src="colar.png" alt="Colar Ametista">
+      <p>Colar o Brilho da Ametista</p>
+    </div>
+  </div>
+  
+
+  <!-- Produto Detalhado -->
+  <div class="produto-box" id="produto" style="display: none;">
+    <img id="produto-imagem" class="produto-imagem" src="" alt="">
+    <div class="produto-info">
+      <h2 id="produto-nome"></h2>
+      <h3 id="produto-preco"></h3>
+      <p id="produto-descricao"></p>
+
+      <button id="btnAdicionar" onclick="mostrarOpcoesCompra()">Adicionar ao Carrinho</button>
+
+      <div class="opcoes-compra" id="opcoes-compra">
+        <label for="tamanho">Tamanho:</label>
+        <select id="tamanho">
+          <option value="G">G</option>
+          <option value="GG">GG</option>
+          <option value="M">M</option>
+          <option value="MM">MM</option>
+        </select>
+
+        <label for="cor">Cor:</label>
+        <select id="cor">
+          <option value="Prata">Prata</option>
+          <option value="Dourado">Dourado</option>
+          <option value="Rosé">Rosé</option>
+        </select>
+
+        <br><br>
+        <button onclick="diminuir()">-</button>
+        <input type="number" id="quantidade" value="1" min="1">
+        <button onclick="aumentar()">+</button>
+
+        <br><br>
+        <button onclick="finalizarCarrinho()">Confirmar Compra</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function mostrarProduto(nome, preco, imagem, descricao) {
+      const produtoBox = document.getElementById('produto');
+      produtoBox.style.display = 'flex';
+
+      document.getElementById('produto-nome').textContent = nome;
+      document.getElementById('produto-preco').textContent = `Preço do Produto: R$ ${preco.toFixed(2)}`;
+      document.getElementById('produto-descricao').textContent = descricao;
+      document.getElementById('produto-imagem').src = imagem;
+
+      produtoBox.setAttribute('data-nome', nome);
+      produtoBox.setAttribute('data-preco', preco);
+
+      document.getElementById('opcoes-compra').style.display = 'none';
+      document.getElementById('btnAdicionar').style.display = 'inline-block';
+      document.getElementById('dropdownCarrinho').style.display = 'none';
+
+      window.scrollTo({ top: produtoBox.offsetTop, behavior: 'smooth' });
+    }
+
+    function mostrarOpcoesCompra() {
+      document.getElementById('opcoes-compra').style.display = 'block';
+      document.getElementById('btnAdicionar').style.display = 'none';
+    }
+
+    function aumentar() {
+      let qtd = document.getElementById('quantidade');
+      qtd.value = parseInt(qtd.value) + 1;
+    }
+
+    function diminuir() {
+      let qtd = document.getElementById('quantidade');
+      if (parseInt(qtd.value) > 1) {
+        qtd.value = parseInt(qtd.value) - 1;
+      }
+    }
+
+    function finalizarCarrinho() {
+      const produtoBox = document.getElementById('produto');
+      const nome = produtoBox.getAttribute('data-nome');
+      const preco = parseFloat(produtoBox.getAttribute('data-preco'));
+      const tamanho = document.getElementById('tamanho').value;
+      const cor = document.getElementById('cor').value;
+      const quantidade = parseInt(document.getElementById('quantidade').value);
+      const total = preco * quantidade;
+
+      const li = document.createElement("li");
+      li.textContent = `${nome} | Tam: ${tamanho} | Cor: ${cor} | Qtd: ${quantidade} | R$ ${total.toFixed(2)}`;
+
+      const botaoRemover = document.createElement("button");
+      botaoRemover.textContent = "X";
+      botaoRemover.className = "btn-remover";
+      botaoRemover.onclick = function () {
+        li.remove();
+      };
+
+      li.appendChild(botaoRemover);
+      document.getElementById("lista-carrinho").appendChild(li);
+
+      document.getElementById('dropdownCarrinho').style.display = 'block';
+    }
+
+    function alternarCarrinho() {
+      const dropdown = document.getElementById('dropdownCarrinho');
+      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+</body>
+</html>

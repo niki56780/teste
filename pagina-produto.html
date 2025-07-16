@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Produto</title>
+    <link rel="stylesheet" href="JC.paginaProduto.css"><!-- Corrija para o nome do seu CSS -->
+</head>
+<body>
+    <h1>Página de produto</h1>
+    <p>Página com descrição do produto</p>
+
+    <div class="produto-container">
+        <img src="Colar2.png" alt="Colar de ouro">
+        <div id="esquerda">
+            <p class="nome-produto">Colar com pingente e fios de prata</p>
+            <p>Formas de pagamento</p><!-- link direcionando a pagina de pagamento -->
+            <div class="quantidade-container">
+                <label for="quantidade">Quantidade de itens</label>
+                <div class="quantidade-controles">
+                    <button onclick="diminuir()">−</button>
+                    <span id="quantidade">1</span>
+                    <button onclick="aumentar()">+</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+      let quantidade = 1;
+      const span = document.getElementById("quantidade");
+
+      function aumentar() {
+        quantidade++;
+        span.innerText = quantidade;
+      }
+
+      function diminuir() {
+        if (quantidade > 1) {
+          quantidade--;
+          span.innerText = quantidade;
+        }
+      }
+    </script>
+    <p>voltar a pagina anterior?</p>
+    <a href="JC.paginaInicial.html">Voltar</a><!-- link direcionando a pagina inicial -->
+</body>
+</html>

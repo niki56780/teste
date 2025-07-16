@@ -1,0 +1,16 @@
+{% load static %}
+@charset "UTF-8";
+body{background-image: url(1.png);}
+
+div#form_fundo{background-color: rgba(250, 191, 149, 0.753);
+text-align: center;
+margin: 0px 600px 25% ;
+padding: 150px;
+border-radius: 50px;
+font-weight:bolder;
+box-shadow: 2px 5px 5px  black ;
+}
+input:hover{background-color: rgb(207, 192, 171); color: black;}
+
+
+h1{color: cadetblue; text-align: center;}

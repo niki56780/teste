@@ -1,0 +1,26 @@
+
+@charset"UTF-8";
+
+body{background-color: rgba(192, 192, 192, 0.452)}
+
+div#form_fundo{
+background-color:rgb(255, 255, 255);
+margin: 10% 25% 25% 25%;
+border: 20px;
+display: block;
+font-weight: bold;
+box-shadow: 1px 3px 3px black ;
+}
+
+div#form_frente{background-color: rgb(245, 238, 229);
+padding: 50px;
+font-weight: bold;
+text-align: center;
+margin: 5px;
+}
+
+input{border-radius: 5px;
+font-size: 15px;
+margin:10px 5px 20px;
+text-align: center;
+}

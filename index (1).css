@@ -1,0 +1,92 @@
+{% load static %}
+/* Fundo claro elegante */
+body {
+    background-color: #fff9f6;
+    font-family: 'Verdana', Geneva, Tahoma, sans-serif;
+    margin: 10px;
+    padding: 3px;
+}
+.pesquisa{
+     gap: 60px;
+     width: 30px;
+}
+
+/* Cabeçalho com logo centralizada */
+.logoconteiner {
+    background-color: #f4d3c4;
+    padding: 20px 0;
+    text-align: center;
+    transition: background-color 0.3s;
+
+}
+.logoconteiner img {
+    width: 100px;
+    height: 10px;
+    object-fit: cover;
+
+}
+
+.logoconteiner:hover {
+    background-color: #e8c1ae;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Título principal */
+.titulo {
+    text-align: center;
+    color: #7a4a3c;
+    font-size: 2em;
+    margin-top: 20px;
+}
+
+/* Parágrafo elegante */
+.descricao {
+    text-align: center;
+    color: #3d3d3d;
+    font-size: 1.1em;
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 0 10px;
+}
+
+
+/* Grade de produtos */
+#container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    padding: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Itens com borda, sombra e transição */
+.item {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s, background-color 0.3s;
+    padding: 10px;
+    text-align: center;
+}
+
+.item:hover {
+    transform: scale(1.05);
+    background-color: #fdf1eb;
+}
+
+/* Linha horizontal */
+hr {
+    border: none;
+    border-top: 2px solid #e3bdb0;
+    margin: 0;
+}
+.barra-pesquisa{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}

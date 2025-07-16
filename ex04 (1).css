@@ -1,0 +1,51 @@
+.varios{background-color: silver;
+color: white;
+font-size: 32px;
+font-family: arial,sans-serif;}
+h1{font-size: 36pt}
+
+h2{color:blue}
+
+p{ margin-left: 50px}
+
+body{background-color: silver;
+background-size: 102%;
+background-repeat: no-repeat;
+background-position: center top;
+background-attachment: fixed}
+*{margin: 20px; padding: 20px;}
+*{color: blue;}
+
+#externo{
+    position: relative;
+    margin: 0 auto;
+    width: 1000px;
+    background-color: silver;
+}
+#cabecalho{
+    width: 978px;
+    height: 150px;
+    background-color: silver;
+}
+#rodape{
+    width: 978px;
+    height: 150px;
+    clear: both;
+    background-color: silver;
+}
+#esquerda{
+    background-color: silver;
+}
+#direita{
+background-color: silver;
+}
+.box1{
+    padding: 10px;
+    color: black;
+    text-align: center;
+}
+.box2{
+    display: inline-block;
+    width: 330px;
+    height: 180px;
+}

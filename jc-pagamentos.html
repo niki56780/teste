@@ -1,0 +1,169 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>JC-Joias</title>
+  <style>
+    body
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff9f6;
+    color: #333;
+    padding: 20px;
+    max-width: 700px;
+    margin: auto;
+  }
+
+  h1 {
+    font-size: 2.5em;
+    color: #7a4a3c;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+  }
+
+  h2, h3 {
+    color: #444;
+  }
+
+  label {
+    margin-right: 10px;
+    font-weight: bold;
+  }
+
+  select, input[type="number"] {
+    padding: 6px;
+    margin: 8px 10px 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  button {
+    padding: 8px 14px;
+    border: none;
+    background-color: #e8c1ae; /* cor de ouro */
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 5px;
+  }
+
+  button:hover {
+    background-color: #e8c1ae;
+    transform: scale(1.05);
+  }
+
+  .carrinho {
+    margin-top: 40px;
+    border-top: 2px solid #ccc;
+    padding-top: 20px;
+  }
+
+  #lista-carrinho {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  #lista-carrinho li {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-left: 5px solid #e8c1ae;
+    margin-bottom: 10px;
+    padding: 10px 14px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-remover:hover {
+    transform: scale(1.3);
+  }
+
+  input[type="number"] {
+    width: 50px;
+    text-align: center;
+  }
+
+  </style>
+</head>
+<body>
+
+  <h1>JC-Joias</h1>
+
+  <h2>Nome do produto: Colar de Prata</h2>
+  <h3>Preço do Produto: R$ 150,00</h3>
+
+  <label for="tamanho">Tamanho:</label>
+  <select id="tamanho">
+    <option value="G">G</option>
+    <option value="GG">GG</option>
+    <option value="M">M</option>
+    <option value="MM">MM</option>
+  </select>
+
+  <label for="cor">Cor:</label>
+  <select id="cor">
+    <option value="Prata">Prata</option>
+    <option value="Dourado">Dourado</option>
+    <option value="Rosé">Rosé</option>
+  </select>
+
+  <br><br>
+
+  <button onclick="diminuir()">-</button>
+  <input type="number" id="quantidade" value="1" min="1">
+  <button onclick="aumentar()">+</button>
+
+  <br><br>
+
+  <button onclick="adicionarAoCarrinho()">Adicionar ao Carrinho</button>
+
+  <div class="carrinho" id="carrinho">
+    <h3>Carrinho:</h3>
+    <ul id="lista-carrinho"></ul>
+  </div>
+
+  <script>
+    function aumentar() {
+      let qtd = document.getElementById('quantidade');
+      qtd.value = parseInt(qtd.value) + 1;
+    }
+
+    function diminuir() {
+      let qtd = document.getElementById('quantidade');
+      if (parseInt(qtd.value) > 1) {
+        qtd.value = parseInt(qtd.value) - 1;
+      }
+    }
+
+    function adicionarAoCarrinho() {
+      const nome = "Colar de Prata";
+      const preco = 150.00;
+      const tamanho = document.getElementById('tamanho').value;
+      const cor = document.getElementById('cor').value;
+      const quantidade = parseInt(document.getElementById('quantidade').value);
+
+      const total = preco * quantidade;
+
+      const li = document.createElement("li");
+      li.textContent = `Produto: ${nome} | Tamanho: ${tamanho} | Cor: ${cor} | Quantidade: ${quantidade} | Total: R$ ${total.toFixed(2)}`;
+
+      const botaoRemover = document.createElement("button");
+      botaoRemover.textContent = "X";
+      botaoRemover.className = "btn-remover";
+      botaoRemover.onclick = function () {
+        li.remove();
+      };
+
+      li.appendChild(botaoRemover);
+      document.getElementById("lista-carrinho").appendChild(li);
+    }
+  </script>
+<a href="{% url 'index' %}">voltar</a>
+</body>
+</html>
